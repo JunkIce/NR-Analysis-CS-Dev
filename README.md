@@ -1,10 +1,9 @@
 # Hugheslab's Nuclear Receptor Analysis Scripting
 
 **THIS IS A FORK THAT IS IN ACTIVE DEVELOPMENT**
-
-KNOWN ISSUES:
-- UP_Codes is incomplete
+The main idea here is to make a more flexible, customizable version.
+This has a CLI, which I am working on to improve testing capacity.
 
 Code by Clayton Surber, Concept by Zara Hedari
 
-(Updated @09:13 MDT, 08/02/2024)
+(Updated @15:06 MDT, 02/04/2025)
