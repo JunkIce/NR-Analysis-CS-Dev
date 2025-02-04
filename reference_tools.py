@@ -1,5 +1,3 @@
-from math import sqrt
-
 ChrgClmpDict={}
 ChrgClmpDict['TRa']=('KKLPMFS','EVFE','EDQII','KGCCM')
 ChrgClmpDict['TRb']=('KKLPMFC','EVFE','EDQII','KGCCM')
@@ -157,6 +155,10 @@ AminoacidDict['DG']='_G_'
 AminoacidDict['DC']='_C_'
 AminoacidDict['DU']='_U_'
 
+# Reversed Amino Acid dictionary (for getting three letter codes given one-letter ones)
+Reverse_AA = {v: k for k, v in list(AminoacidDict.items())[::-1]}
+
+
 helixRanges={} # Helix residues for canonical sequences
 
 helixRanges['FXR']={
@@ -173,14 +175,6 @@ helixRanges['FXR']={
     11:(457,471),
     12:(476,483)
 }
-
-
-
-def heronArea (a:float,b:float,c:float):
-    s=(a+b+c)/2
-    area=sqrt(s*(s-a)*(s-b)*(s-c))
-    return area
-
 
 hBondDonors={
     'A':(),
@@ -421,7 +415,31 @@ LigandNames={
 }
 
 UP_Codes={
-    'FXR':'Q96RI1'
+    'TRa':'P10827',
+    'TRb':'P10828',
+    'RARa':'P10276',
+    'RARb':'P10826',
+    'RARg':'P13631',
+    'PPARa':'Q07869',
+    'PPARg':'P37231',
+    'PPARd':'Q03181',
+    'ReverbAa':'P20393',
+    'ReverbAb':'Q14995',
+    'RORa':'P35398',
+    'RORb':'Q92753',
+    'RORg':'P51449',
+    'LXRa':'Q13133',
+    'LXRb':'P55055',
+    'FXR':'Q96RI1',
+    'VDR':'P11473',
+    'PXR':'O75469',
+    'CAR':'Q14994',
+    'HNF4a':'P41235',
+    'HNG4b':'Q14541',
+    'RXRa':'P19793',
+    'RXRb':'P28702',
+
+
 }
 
 
@@ -430,4 +448,22 @@ aa_pi_atoms={
     'TYR':[['CG','CD2','CE2','CZ','CE1','CD1']],
     'TRP':[['CG','CD2','CE2','NE1','CD1'],['CD2','CE2','CZ2','CH2','CZ3','CE3']],
     'HIS':[['CG','CD2','NE2','CE1','ND1']]
+}
+
+LigandGroups={
+    'Steroids':['JN3','CHC','MUF','9L1','IU5'],
+    'Tropifexor':['GWF','811','9R0','9R3'],
+    'GW-4064':['064','O62','643','708','82X','088','P88','89P','59G','37G','034','9O1'],
+    'PBZ':['OKH','OKI','OLF','OMK','OMM','OOF','OOK','9KV','9KY','9L4','9L7','9LA','9LJ','9LP','9MA','9LS','9LY','9MD','9MM','9MP','9MS','9MY','9N1','9N4','9N7','9NA','9ND','9NJ','9NP'],
+    'PSBZ':['9LD','9LG','9LM'],
+    'BBS':['9LV','9NG','9MV'],
+    'XL-335':['33Y','9M1','635'],
+    'Nimodipine':['NIW','93O','93R','93U'],
+    'XD_':['XD4','XD5','T73'],
+    'XJ-034':['AWL','XAW'],
+    'Fexaramine':['FEX','9M4','XX9']
+}
+
+LBD_start={
+    'FXR':252,
 }

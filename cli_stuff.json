@@ -1,0 +1,14 @@
+{
+    "init_seq":[
+        "\\033[1;32m\nNuclear Receptor Analysis Tool\n\\033[0m",
+        "By Clayton Surber, Concept by Zara Hedari\n",
+        "Component:          |  Version:",
+        "--------------------+------------------",
+        "CLI                 |  alpha 0.0.1",
+        "Framework           |  alpha 3.0.0",
+        "",
+        "_______________________________________",
+        "(enter 'h' or 'help' for a list of commands)",
+        "\n"
+    ]
+}
