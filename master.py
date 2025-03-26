@@ -6,7 +6,8 @@ import sequencing_engine as seq
 import reference_tools as ref
 
 loaded_files:dict[str,structureFile]={}
-groups={}
+groups:dict[str,list[structureFile]]={}
+selected:structureFile=None
 def init(target:str,name=''):
     file=fmgr.get(target)
     if not name:
@@ -15,7 +16,12 @@ def init(target:str,name=''):
     loaded_files[name]=structure
 
 def group(gname:str,structs:list[structureFile]):
-    groups[gname]=list[structureFile]
+    if gname not in groups:
+        groups[gname]=[]
+        for file in structs:
+            groups[gname].append(file)
+    else:
+        print('Group already exists.')
 
 def group_add(gname:str,):
     pass

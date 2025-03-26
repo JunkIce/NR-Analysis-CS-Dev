@@ -9,7 +9,7 @@ import Bio.Align
 # Other things
 import periodictable as ptable
 import numpy as np
-
+from typing import Iterable
 
 import reference_tools as ref
 import file_manager as fmgr

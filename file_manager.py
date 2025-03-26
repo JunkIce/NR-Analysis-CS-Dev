@@ -41,7 +41,7 @@ def get(target:str):
             if url_exists(url):
                 urllib.request.urlretrieve(url,defaultCache+target+'.cif')
             else:
-                raise(ValueError,f'Error retrieving \'{target}\' from PDB: {url} could not be reached')
+                raise ValueError(f'Error retrieving \'{target}\' from PDB: {url} could not be reached')
         targetPath=defaultCache+target+'.cif'
     
     elif type[-1] in validFileTypes:
@@ -50,10 +50,10 @@ def get(target:str):
             if url_exists(url):
                 urllib.request.urlretrieve(url,defaultCache+target)
             else:
-                raise(ValueError,f'Error retrieving \'{target}\' from PDB: {url} could not be reached')
+                raise ValueError(f'Error retrieving \'{target}\' from PDB: {url} could not be reached')
         targetPath=defaultCache+target
     else:
-        raise(ValueError,f'ERROR GETTING COORDINATE FILE \'{target}\': INVALID FILE TYPE.\nVALID FILE TYPES: {validFileTypes}')
+        raise ValueError(f'ERROR GETTING COORDINATE FILE \'{target}\': INVALID FILE TYPE.\nVALID FILE TYPES: {validFileTypes}')
     
     if os.path.exists(targetPath):
         return targetPath
@@ -98,7 +98,8 @@ def ccdName(ccd_code:str) -> str:
     try:
         with urllib.request.urlopen(rcsb_url) as rcsb_response:
             rcsb_data = json.loads(rcsb_response.read().decode())
-            synonyms = rcsb_data['rcsb_chem_comp_synonyms']
+            try:synonyms = rcsb_data['rcsb_chem_comp_synonyms']
+            except:synonyms=[]
             for i in synonyms:
                 if valid_name(i['name']):
                     return i['name']
@@ -182,8 +183,10 @@ def smiles(ccd_code:str) -> str:
             return smiles
     except HTTPError as e:
         print(f"Error: {e.reason} - could not retrieve ligand '{ccd_code}' from RCSB.", file=sys.stderr)
+        return''
 
-@functools.lru_cache(maxsize=50)
+# Going to replace this with local since pchem is a bit flaky
+@functools.lru_cache(maxsize=500)
 def pubchem_diagram(smiles:str, fileName:str, base_resolution=500, scale_factor=20):
     
     atom_count = len(re.findall(r'[A-Z][a-z]?', smiles))
