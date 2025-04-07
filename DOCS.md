@@ -17,3 +17,21 @@ The higherarchy of structure objects is as follows:
             |
            atom <-- each residue/ligand contains a list of these
 ```
+
+**`structureFile(path)`**
+
+Initialized by providing it a path to a pdb or cif file.
+Initializes all child objects upon initialization.
+
+**`chain(name, rawData, parent=None)`**
+
+Usually initialized by a structureFile cascade.
+Initializes all child objects as needed.
+Derived from a Bio.PDB.Chain.Chain object.
+
+*`chain.seq()`*
+1) Initializes amino acid sequence
+2) Attempts to identify self as coregulator or NR
+
+*`chain.align()`*
+Attempts to align indexing errors, stemming from gaps or etc.
