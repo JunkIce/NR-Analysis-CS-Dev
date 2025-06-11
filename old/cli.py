@@ -272,11 +272,11 @@ def analyze(args):
     For getting calculated info about a structure (distances, etc.)
     '''
     if len(args)<2:return
-    targets,*funcs=args[0]
+    targets,*funcs=args
     valid_funcs={
         'pi'
     }
-
+    print(funcs)
     if not all(func in valid_funcs for func in funcs):
         print('Invalid Args')
         return
@@ -295,7 +295,7 @@ def analyze(args):
                 continue
 
             NR.align()
-            #NR.getInteractions()
+            NR.analyze(funcs)
 
 
     

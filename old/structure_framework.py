@@ -4,7 +4,7 @@ from Bio.PDB import PDBParser
 import Bio.PDB.Chain
 import Bio.PDB.Residue
 import Bio.Align
-
+from typing import *
 
 # Other things
 import periodictable as ptable
@@ -25,7 +25,7 @@ class structureFile:
     This object initializes all other structure file sub-objects from a given structure file passed through the `path` argument.\n
     Also attempts to set coregulator pairs, assuming conventional alternating host-coreg or coreg-host ordering of proteins.
     '''
-    def __init__(self, path:str):
+    def __init__(self, path:str) -> NoReturn:
         self.filePath=path
         self.title=None
         self.pdbEntryID=None
@@ -77,13 +77,13 @@ class structureFile:
                 cache == id
         self.coregPairs:dict[str,str] = coregPairs
     
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Structure File derived from \'{self.filePath}\''
 
 
 
 class ligand():
-    def __init__(self,rawData:Bio.PDB.Residue.Residue,parent:str=None):
+    def __init__(self,rawData:Bio.PDB.Residue.Residue,parent:str=None) -> NoReturn:
         self.parent:str=parent
         self.name:str=rawData.resname
         self.atoms:dict[str,atom] = {}
@@ -103,20 +103,20 @@ class ligand():
             self.atoms[bio_atom.id] = atom_obj
             self.atomlist.append(atom_obj)
     
-    def __str__(self):
+    def __str__(self) -> str:
         return f'[Chain {self.parent}] Ligand: "{self.full_name() if self.full_name()!=self.name else self.iupac_name()}" (CCD: {self.name})'
 
-    def full_name(self):
+    def full_name(self) -> str:
         if not self.__full_name:
             self.__full_name = fmgr.ccdName(self.name)
         return self.__full_name
     
-    def iupac_name(self):
+    def iupac_name(self) -> str:
         if not self.__iupac:
             self.__iupac = fmgr.iupacName(self.name)
         return self.__iupac
     
-    def smiles(self):
+    def smiles(self) -> str:
         if not self.__smiles:
             self.__smiles = fmgr.smiles(self.name)
 
@@ -130,7 +130,7 @@ class ligand():
 
 
 class atom():
-    def __init__(self,serial:str,name:str,altLoc:str,resName:str,chainID:str,resSeq:str,iCode:str,x:str,y:str,z:str,occupancy:str,tempFactor:str,element:str,charge:str):
+    def __init__(self,serial:str,name:str,altLoc:str,resName:str,chainID:str,resSeq:str,iCode:str,x:str,y:str,z:str,occupancy:str,tempFactor:str,element:str,charge:str) -> NoReturn:
         self.serial=int(serial)
         self.name=name
         self.altLoc=altLoc
@@ -149,13 +149,13 @@ class atom():
         self.element=element
         self.charge=charge
         #self.weight:float = ptable.mass.mass(ptable.elements.isotope(element))
-    def __str__(self):
+    def __str__(self) -> str:
         return f'[{self.resSeq} {self.resName}]: {self.name}'
     
 
 
 class residue():
-    def __init__(self,rawData:Bio.PDB.Residue.Residue,parent:str=None):
+    def __init__(self,rawData:Bio.PDB.Residue.Residue,parent:str=None) -> NoReturn:
         self.parent=parent
         self.id:str=str(rawData.id[1])
         self.auth_id=str(rawData.id[1])
@@ -179,13 +179,13 @@ class residue():
                     self.__rings.append(ring_atoms)
                 except: continue
     
-    def rings(self):
+    def rings(self) -> list[list[atom]]:
         return self.__rings
-    def __str__(self):
+    def __str__(self) -> str:
         return f'[{self.parent}] Residue {self.id}: {self.type()}'
 
 class water():
-    def __init__(self,rawData:Bio.PDB.Residue.Residue,parent:str=None):
+    def __init__(self,rawData:Bio.PDB.Residue.Residue,parent:str=None) -> NoReturn:
         self.parent=parent
         self.atoms:dict[str,atom]={}
         for bio_atom in rawData:
@@ -199,7 +199,7 @@ class water():
             self.atoms[bio_atom.id] = atom_obj
 
 class chain():
-    def __init__(self,name:str,rawData:Bio.PDB.Chain.Chain,parent:str=None):
+    def __init__(self,name:str,rawData:Bio.PDB.Chain.Chain,parent:str=None) -> NoReturn:
         self.parent=parent
         self.name=name
         self.residues: list[residue] = []
@@ -230,7 +230,7 @@ class chain():
             else:
                 self.waters.append(water(bio_residue,self.name))
     
-    def __str__(self):
+    def __str__(self) -> str:
         return f'[{self.parent}] Chain {self.name}: {self.type()}'
 
         
@@ -245,23 +245,11 @@ class chain():
                     resBuffer=currentRes
 
             found=False
-            for item in ref.ChrgClmpDict:
-                if found: continue
-                if ref.ChrgClmpDict[item][0] in self.__aminosequence:
-                    self.__family='NR'
-                    self.__type=item
-                    found=True
-
-            if not found:
-                for coreg in ref.coacDict:
-                    if found: continue
-                    if ref.coacDict[coreg] in self.__aminosequence:
-                        self.__family='Coreg'
-                        self.__type=coreg
-                        found=True
-
-            if not found:
-                self.flags.append('unknown')
+        import sequencing_engine as seqr
+        try:chain_fam,chain_type=seqr.blastp(self.__aminosequence)
+        except:chain_fam,chain_type=['unknown']*2
+        self.__family=chain_fam
+        self.__type=chain_type
 
         return(self.__aminosequence)
 
@@ -281,9 +269,9 @@ class chain():
     
     def align(self) -> Bio.Align.Alignment:
         if not self.__alignment:
-            import sequencing_engine as seq
-            self.__alignment=seq.alignToCanonical(self)
-            seq.fixOffset(self,self.__alignment)
+            import sequencing_engine as seqr
+            self.__alignment=seqr.alignToCanonical(self)
+            seqr.fixOffset(self,self.__alignment)
         return self.__alignment
 
     
@@ -292,23 +280,23 @@ class chain():
             return (False)
         return(True)
     
-    def gaps(self):
+    def gaps(self) -> list[tuple]:
         if not self.__gaps:
-            import sequencing_engine as seq
-            analysis=seq.analyzeAlignment(self.align())
+            import sequencing_engine as seqr
+            analysis=seqr.analyzeAlignment(self.align())
             self.__gaps=analysis['Gaps']
             self.__mutations = analysis['Mutations']
         return self.__gaps
     
-    def mutations(self):
+    def mutations(self) -> list[tuple]:
         if not self.__gaps:
-            import sequencing_engine as seq
-            analysis=seq.analyzeAlignment(self.align())
+            import sequencing_engine as seqr
+            analysis=seqr.analyzeAlignment(self.align())
             self.__gaps=analysis['Gaps']
             self.__mutations = analysis['Mutations']
         return self.__mutations
     
-    def ligand_interactions(self):
+    def ligand_interactions(self) -> dict[str,dict[str,dict]]:
         import interaction_finder as inx
         interactions={}
         for ligand in self.ligands:
