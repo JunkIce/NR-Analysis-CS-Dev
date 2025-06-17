@@ -1,0 +1,512 @@
+{
+    "Protein": {
+        "NuclearReceptors": {
+            "1": {
+                "A": {
+                    "1": {
+                        "name": "Thyroid Hormone Receptor alpha",
+                        "short": "TRa",
+                        "uniprot": "P10827",
+                        "keyseq": {
+                            "H3cc": "KKLPMFS",
+                            "H12cc": "EVFE",
+                            "H4_1cc": "EDQII",
+                            "H4_8cc": "KGCCM"
+                        }
+                    },
+                    "2": {
+                        "name": "Thyroid Hormone Receptor beta",
+                        "short": "TRb",
+                        "uniprot": "P10828",
+                        "keyseq": {
+                            "H3cc": "KKLPMFC",
+                            "H12cc": "EVFE",
+                            "H4_1cc": "EDQII",
+                            "H4_8cc": "KGCCM"
+                        }
+                    }
+                },
+                "B": {
+                    "1": {
+                        "name": "Retinoic acid receptor alpha",
+                        "short": "RARa",
+                        "uniprot": "P10276",
+                        "keyseq": {
+                            "H3cc": "KQLPGFT",
+                            "H12cc": "EMLE",
+                            "H4_1cc": "ADQIT",
+                            "H4_8cc": "KAACL"
+                        }
+                    },
+                    "2": {
+                        "name": "Retinoic acid receptor beta",
+                        "short": "RARb",
+                        "uniprot": "P10826",
+                        "keyseq": {
+                            "H3cc": "KRLPGFTGLT",
+                            "H12cc": "EMLE",
+                            "H4_1cc": "ADQIT",
+                            "H4_8cc": "KAACL"
+                        }
+                    },
+                    "3": {
+                        "name": "Retinoic acid receptor gamma",
+                        "short": "RARg",
+                        "uniprot": "P13631",
+                        "keyseq": {
+                            "H3cc": "KRLPGFTGLS",
+                            "H12cc": "EMLE",
+                            "H4_1cc": "ADQIT",
+                            "H4_8cc": "KAACL"
+                        }
+                    }
+                },
+                "C": {
+                    "1": {
+                        "name": "Peroxisome proliferator-activated receptor alpha",
+                        "short": "PPARa",
+                        "uniprot": "Q07869",
+                        "keyseq": {
+                            "H3cc": "KAIPGFA",
+                            "H12cc": "EIYR",
+                            "H4_1cc": "NDQVT",
+                            "H4_8cc": "KYGVY"
+                        }
+                    },
+                    "2": {
+                        "name": "Peroxisome proliferator-activated receptor beta/delta",
+                        "short": "PPARb/d",
+                        "uniprot": "Q03181",
+                        "keyseq": {
+                            "H3cc": "KSIPSF",
+                            "H12cc": "EIYK",
+                            "H4_1cc": "NDQVT",
+                            "H4_8cc": "KYGVH"
+                        }
+                    },
+                    "3": {
+                        "name": "Peroxisome proliferator-activated receptor gamma",
+                        "short": "PPARg",
+                        "uniprot": "P37231",
+                        "keyseq": {
+                            "H3cc": "KSIPGFV",
+                            "H12cc": "EIY",
+                            "H4_1cc": "NDQVT",
+                            "H4_8cc": "KYGVH"
+                        }
+                    }
+                },
+                "D": {
+                    "1": {
+                        "name": "Rev-erbA alpha",
+                        "short": "Rev-erbAa",
+                        "uniprot": "P20393",
+                        "keyseq": {
+                            "H3cc": "KHIPGFR",
+                            "H12cc": "EKLL",
+                            "H4_1cc": "HDQVT",
+                            "H4_8cc": "KAGTF"
+                        }
+                    },
+                    "2": {
+                        "name": "Rev-erbA beta",
+                        "short": "Rev-erbAb",
+                        "uniprot": "Q14995",
+                        "keyseq": {
+                            "H3cc": "KRIPGF",
+                            "H12cc": "EEL",
+                            "H4_1cc": "HDQVN",
+                            "H4_8cc": "KAGTF"
+                        }
+                    }
+                },
+                "F": {
+                    "1": {
+                        "name": "RAR-related orphan receptor alpha",
+                        "short": "RORa",
+                        "uniprot": "P35398",
+                        "keyseq": {
+                            "H3cc": "KRIDGF",
+                            "H12cc": "ELF",
+                            "H4_1cc": "NDQIV",
+                            "H4_8cc": "KAGSL"
+                        }
+                    },
+                    "2": {
+                        "name": "RAR-related orphan receptor beta",
+                        "short": "RORb",
+                        "uniprot": "Q92753",
+                        "keyseq": {
+                            "H3cc": "KRITGF",
+                            "H12cc": "ELFN",
+                            "H4_1cc": "NDQIL",
+                            "H4_8cc": "KSGCL"
+                        }
+                    },
+                    "3": {
+                        "name": "RAR-related orphan receptor gamma",
+                        "short": "RORg",
+                        "uniprot": "P51449",
+                        "keyseq": {
+                            "H3cc": "KRLSGF",
+                            "H12cc": "ELFS",
+                            "H4_1cc": "NDQIV",
+                            "H4_8cc": "KAGAM"
+                        }
+                    }
+                },
+                "H": {
+                    "2": {
+                        "name": "Liver X receptor beta",
+                        "short": "LXRa",
+                        "uniprot": "Q13133",
+                        "keyseq": {
+                            "H3cc": "KQLPGFL",
+                            "H12cc": "EIWD",
+                            "H4_1cc": "EDQIA",
+                            "H4_8cc": "KTSAI"
+                        }
+                    },
+                    "3": {
+                        "name": "Liver X receptor alpha",
+                        "short": "LXRb",
+                        "uniprot": "P55055",
+                        "keyseq": {
+                            "H3cc": "KQVPGF",
+                            "H12cc": "EIWD",
+                            "H4_1cc": "EDQIA",
+                            "H4_8cc": "KASTI"
+                        }
+                    },
+                    "4": {
+                        "name": "Farnesoid X receptor",
+                        "short": "FXR",
+                        "uniprot": "Q96RI1",
+                        "keyseq": {
+                            "H3cc": "KKLPGF",
+                            "H12cc": "EIW",
+                            "H4_1cc": "EDQIA",
+                            "H4_8cc": "KGSAV"
+                        }
+                    }
+                },
+                "I": {
+                    "1": {
+                        "name": "Vitamin D receptor",
+                        "short": "VDR",
+                        "uniprot": "P11473",
+                        "keyseq": {
+                            "H3cc": "KMIPGF",
+                            "H12cc": "EVFG",
+                            "H4_1cc": "EDQIV",
+                            "H4_8cc": "KSSAI"
+                        }
+                    },
+                    "2": {
+                        "name": "Pregnane X receptor",
+                        "short": "PXR",
+                        "uniprot": "O75469",
+                        "keyseq": {
+                            "H3cc": "KVISYF",
+                            "H12cc": "ELFG",
+                            "H4_1cc": "EDQIS",
+                            "H4_8cc": "KGAAF"
+                        }
+                    },
+                    "3": {
+                        "name": "Constitutive androstane receptor",
+                        "short": "CAR",
+                        "uniprot": "Q14994",
+                        "keyseq": {
+                            "H3cc": "KDLPVF",
+                            "H12cc": "EICS",
+                            "H4_1cc": "EDQIS",
+                            "H4_8cc": "KGAAV"
+                        }
+                    }
+                }
+            },
+            "2": {
+                "A": {
+                    "1": {
+                        "name": "Hepatocyte nuclear factor 4 alpha",
+                        "short": "HNF4a",
+                        "uniprot": "P41235",
+                        "keyseq": {
+                            "H3cc": "KYIPAF",
+                            "H12cc": "EML",
+                            "H4_1cc": "DDQVA",
+                            "H4_8cc": "RAHAG"
+                        }
+                    },
+                    "2": {
+                        "name": "Hepatocyte nuclear factor 4 gamma",
+                        "short": "HNF4g",
+                        "uniprot": "Q14541",
+                        "keyseq": {
+                            "H3cc": "KYIPAF",
+                            "H12cc": "EMLL",
+                            "H4_1cc": "DDQVA",
+                            "H4_8cc": "RAHAG"
+                        }
+                    }
+                },
+                "B": {
+                    "1": {
+                        "name": "Retinoid X receptor alpha",
+                        "short": "RXRa",
+                        "uniprot": "P19793",
+                        "keyseq": {
+                            "H3cc": "KRIPHFSE",
+                            "H12cc": "EML",
+                            "H4_1cc": "DDQVI",
+                            "H4_8cc": "RAGWN"
+                        }
+                    },
+                    "2": {
+                        "name": "Retinoid X receptor beta",
+                        "short": "RXRb",
+                        "uniprot": "P28702",
+                        "keyseq": {
+                            "H3cc": "KRIPHFSS",
+                            "H12cc": "EML",
+                            "H4_1cc": "DDQVI",
+                            "H4_8cc": "RAGWN"
+                        }
+                    },
+                    "3": {
+                        "name": "Retinoid X receptor gamma",
+                        "short": "RXRg",
+                        "uniprot": "P48443",
+                        "keyseq": {
+                            "H3cc": "KRIPHFSD",
+                            "H12cc": "EML",
+                            "H4_1cc": "EDQVI",
+                            "H4_8cc": "RAGWN"
+                        }
+                    }
+                }
+            },
+            "3": {
+                "A": {
+                    "1": {
+                        "name": "Estrogen receptor alpha",
+                        "short": "ERa",
+                        "uniprot": "P03372",
+                        "keyseq": {
+                            "H3cc": "KRVPGF",
+                            "H12cc": "EMLD",
+                            "H4_1cc": "HDQVH",
+                            "H4_8cc": "ECAWL"
+                        }
+                    },
+                    "2": {
+                        "name": "Estrogen receptor beta",
+                        "short": "ERb",
+                        "uniprot": "Q92731",
+                        "keyseq": {
+                            "H3cc": "KKIPGF",
+                            "H12cc": "EML",
+                            "H4_1cc": "FDQVR",
+                            "H4_8cc": "ESCWM"
+                        }
+                    }
+                },
+                "B": {
+                    "1": {
+                        "name": "Estrogen related receptor alpha",
+                        "short": "ERRa",
+                        "uniprot": "P11474",
+                        "keyseq": {
+                            "H3cc": "KSIPGFS",
+                            "H12cc": "EMLE",
+                            "H4_1cc": "SDQMS",
+                            "H4_8cc": "QSVWM"
+                        }
+                    },
+                    "2": {
+                        "name": "Estrogen related receptor beta",
+                        "short": "ERRb",
+                        "uniprot": "O95718",
+                        "keyseq": {
+                            "H3cc": "KHIPGFSS",
+                            "H12cc": "EMLE",
+                            "H4_1cc": "GDQMS",
+                            "H4_8cc": "QSAWM"
+                        }
+                    },
+                    "3": {
+                        "name": "Estrogen related receptor gamma",
+                        "short": "ERRg",
+                        "uniprot": "P62508",
+                        "keyseq": {
+                            "H3cc": "KHIPGFST",
+                            "H12cc": "EMLE",
+                            "H4_1cc": "ADQMS",
+                            "H4_8cc": "QSAWM"
+                        }
+                    }
+                },
+                "C": {
+                    "1": {
+                        "name": "Glucocorticoid receptor",
+                        "short": "GR",
+                        "uniprot": "P04150",
+                        "keyseq": {
+                            "H3cc": "KAIPGFR",
+                            "H12cc": "EIIT",
+                            "H4_1cc": "DDQMT",
+                            "H4_8cc": "QYSWM"
+                        }
+                    },
+                    "2": {
+                        "name": "Mineralocorticoid receptor",
+                        "short": "MR",
+                        "uniprot": "P08235",
+                        "keyseq": {
+                            "H3cc": "KVLPGF",
+                            "H12cc": "EIIS",
+                            "H4_1cc": "EDQIT",
+                            "H4_8cc": "QYSWM"
+                        }
+                    },
+                    "3": {
+                        "name": "Progesterone receptor",
+                        "short": "PR",
+                        "uniprot": "P06401",
+                        "keyseq": {
+                            "H3cc": "KSLPGF",
+                            "H12cc": "EVIA",
+                            "H4_1cc": "DDQIT",
+                            "H4_8cc": "QYSWM"
+                        }
+                    },
+                    "4": {
+                        "name": "Androgen Receptor",
+                        "short": "AR",
+                        "uniprot": "P10275",
+                        "keyseq": {
+                            "H3cc": "KALPGF",
+                            "H12cc": "EIIS",
+                            "H4_1cc": "DDQMA",
+                            "H4_8cc": "QYSWM"
+                        }
+                    }
+                }
+            },
+            "4": {
+                "A": {
+                    "1": {
+                        "name": "Nerve Growth factor IB",
+                        "short": "NGFIB",
+                        "uniprot": "P22736",
+                        "keyseq": {
+                            "H3cc": "EKIPGFAE",
+                            "H12cc": "KIFM",
+                            "H4_1cc": "ADQDL",
+                            "H4_8cc": "ESAFL"
+                        }
+                    },
+                    "2": {
+                        "name": "Nuclear Receptor Related 1",
+                        "short": "NURR1",
+                        "uniprot": "P43354",
+                        "keyseq": {
+                            "H3cc": "EKIPGFAD",
+                            "H12cc": "KLFL",
+                            "H4_1cc": "ADQDL",
+                            "H4_8cc": "ESAFL"
+                        }
+                    }
+                }
+            },
+            "5": {
+                "A": {
+                    "1": {
+                        "name": "Steroidogenic factor 1",
+                        "short": "SF1",
+                        "uniprot": "Q13285",
+                        "keyseq": {
+                            "H3cc": "__",
+                            "H12cc": "EMLQ",
+                            "H4_1cc": "ADQMT",
+                            "H4_8cc": "QNCWS"
+                        }
+                    }
+                }
+            },
+            "6": {
+                "A": {
+                    "1": {
+                        "name": "Germ cell nuclear factor",
+                        "short": "GCNF",
+                        "uniprot": "Q15406",
+                        "keyseq": {
+                            "H3cc": "__",
+                            "H12cc": "__",
+                            "H4_1cc": "__",
+                            "H4_8cc": "__"
+                        }
+                    }
+                }
+            },
+            "0": {
+                "B": {
+                    "1": {
+                        "name": "dosage-sensitive sex reversal, adrenal hypoplasia critical region, on chromosome X, gene 1",
+                        "short": "DAX1",
+                        "uniprot": "P51843",
+                        "keyseq": {
+                            "H3cc": "__",
+                            "H12cc": "__",
+                            "H4_1cc": "__",
+                            "H4_8cc": "__"
+                        }
+                    },
+                    "2": {
+                        "name": "Small heterodimer partner",
+                        "short": "SHP",
+                        "uniprot": "Q15466",
+                        "keyseq": {
+                            "H3cc": "__",
+                            "H12cc": "__",
+                            "H4_1cc": "__",
+                            "H4_8cc": "__"
+                        }
+                    }
+                }
+            }
+        },
+        "Coregulators":{
+            "Coactivators":[
+                {
+                    "name": "Nuclear receptor coactivator 1",
+                    "short": "Ncoa-1",
+                    "uniprot": "Q15788"
+                },
+                {
+                    "name": "Nuclear receptor coactivator 2",
+                    "short": "Ncoa-2",
+                    "uniprot": "Q15596"
+                },
+                {
+                    "name": "Peroxisome proliferator-activated receptor gamma coactivator 1-alpha",
+                    "short": "PGC1a",
+                    "uniprot": "Q9UBK2"
+                }
+            ],
+            "Corepressors":[
+                {
+                    "name": "Nuclear receptor corepressor 1",
+                    "short": "Ncor-1",
+                    "uniprot": "O75376"
+                },
+                {
+                    "name": "Nuclear receptor corepressor 2",
+                    "short": "Ncor-2",
+                    "uniprot": "Q9Y618"
+                }
+            ]
+        }
+    }
+}

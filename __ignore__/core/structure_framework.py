@@ -11,11 +11,21 @@ import periodictable as ptable
 import numpy as np
 from typing import Iterable
 
-from ..data import reference_tools as ref
+#from ..data import reference_tools as ref
+import json
 from ..io import file_manager as fmgr
 #import interaction_finder as inx
 
+with open('../data/human_reference.json','r') as humanjson:
+    NRref=json.load(humanjson)
+with open('../data/human_reference.json','r') as moljson:
+    molRef=json.load(moljson)
 
+def amino_code_lookup(code:str):
+    for letter, info in molRef["AminoAcids"].items():
+        if isinstance(info, dict) and ((info.get("primary") == code) or (code in info.get("overrides"))):
+            return letter
+    return None
 
 class structureFile:
     '''
@@ -120,6 +130,8 @@ class ligand():
         if not self.__smiles:
             self.__smiles = fmgr.smiles(self.name)
 
+
+    '''
     def rings(self) -> list[list[list]]:
         if not self.__rings:
             self.__rings=[]
@@ -127,6 +139,7 @@ class ligand():
             self.__rings = geo.detect_aromatic_rings(self)
 
         return self.__rings
+    '''
 
     
 
@@ -173,14 +186,14 @@ class residue():
             bio_atom.element, str(bio_atom.get_charge())
             )
             self.atoms[bio_atom.id] = atom_obj
-        
+        '''
         if self.type in ref.aa_pi_atoms:
             for loc in ref.aa_pi_atoms[self.type]:
                 try: # In case of missing sidechain/part of sidechain
                     ring_atoms = [self.atoms[atom_name] for atom_name in loc]
                     self.__rings.append(ring_atoms)
                 except: continue
-    
+        '''
     def rings(self) -> list[list[atom]]:
         return self.__rings
     def __str__(self) -> str:
@@ -224,7 +237,7 @@ class chain():
         self.__got_pi_bonds=False
         
         for bio_residue in rawData:
-            if bio_residue.resname in ref.AminoacidDict:
+            if amino_code_lookup(bio_residue.resname):
                 self.residues.append(residue(bio_residue,self.name))
                 #print(f"  Adding residue {bio_residue.resname} {bio_residue.id} to chain {self.name}")
             elif bio_residue.resname != 'HOH':
@@ -243,7 +256,7 @@ class chain():
             for residue in self.residues:
                 currentRes=residue.id
                 if currentRes != resBuffer:
-                    self.__aminosequence += ref.AminoacidDict[residue.type]
+                    self.__aminosequence += amino_code_lookup(residue.type)
                     resBuffer=currentRes
 
             found=False
@@ -298,7 +311,7 @@ class chain():
             self.__mutations = analysis['Mutations']
         return self.__mutations
     
-    def ligand_interactions(self) -> dict[str,dict[str,dict]]:
+    '''def ligand_interactions(self) -> dict[str,dict[str,dict]]:
         import interaction_finder as inx
         interactions={}
         for ligand in self.ligands:
@@ -307,4 +320,4 @@ class chain():
                 interaction_info=inx.all_interactions(res,ligand)
                 if interaction_info:
                     interactions[ligand.name][res.id]=interaction_info
-        return interactions
+        return interactions'''
